@@ -28,7 +28,7 @@ Civic Shield is an intelligent, AI-driven platform designed to modernize civic i
 Civic Shield is an evolving platform currently focused on integrating advanced backend functionality and refining its security inspection capabilities.
 
 ## Live Deployment & Documentation
-* **Deployed Application**: [Insert your Google Cloud Link here]
+* **Deployed Application**: https://community-hero-659476383070.us-central1.run.app
 * **Project Documentation**: https://docs.google.com/document/d/1fvgTHMZ4PBesTnlSXWV-S6S6WOnLGoabRW4HVW6viXA/edit?usp=sharing
 
 ## Installation
