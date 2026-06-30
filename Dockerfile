@@ -19,8 +19,8 @@ RUN npm run build
 # Install a simple web server
 RUN npm install -g serve
 
-# Expose the port (Cloud Run uses the PORT environment variable)
-EXPOSE 3000
+# Expose the default port (Cloud Run will override this with the PORT environment variable)
+EXPOSE 8080
 
-# Start the server
-CMD ["serve", "-s", "dist"]
+# Start the server, binding to the PORT environment variable (default 8080)
+CMD ["sh", "-c", "serve -s dist -l ${PORT:-8080}"]
