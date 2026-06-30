@@ -4,15 +4,25 @@
 Civic Shield is an intelligent, AI-driven platform designed to modernize civic infrastructure through real-time traffic threat detection and streamlined incident reporting. By bridging the gap between citizens and municipal authorities with a seamless, intuitive React interface, Civic Shield empowers proactive urban safety and data-driven communication.
 
 ## Key Features
-* **AI-Driven Threat Detection**: Utilizes machine learning models, specifically `RandomForestClassifier`, to analyze and identify potential threats in traffic data.
-* **Citizen Portal**: Provides a secure interface for citizens to access information, submit reports, and engage with municipal services.
-* **Municipal Collaboration**: Acts as a central hub for reporting and monitoring urban safety, facilitating data-driven decision-making for municipal partners.
-* **Real-time Monitoring**: Features a security inspection system that continuously evaluates traffic data to distinguish between safe and threat-level conditions.
+* **AI-Powered Content Verification**: The platform utilizes an AI filter to analyze uploaded photos, instantly issuing an alert if the image is irrelevant or unrelated to civic hazards, ensuring data integrity.
+
+* **Intelligent Automated Triage & Ticketing**: Upon a valid report, the AI assistant automatically generates a support ticket and processes the incident, significantly reducing administrative response time.
+
+* **Evidence-Based Decision Support**: Every report includes geotagged evidence photos, allowing municipal admins to visually analyze the issue and deploy the exact resources needed for resolution.
+
+* **Real-Time Geospatial Tracking**: The system captures and maps live GPS coordinates of reported incidents, providing administrators with precise location data for rapid, targeted intervention.
+
+* **Dynamic Language Localization**: Built-in language translation ensures the platform remains accessible and inclusive for all citizens, regardless of their native language.
+
+* **Closed-Loop Status Updates**: Once the administration acknowledges and resolves an issue, the system automatically triggers a status notification to the user, ensuring transparency and citizen satisfaction.
+
 
 ## Technologies Used
-* **Frontend**: Built with React for a responsive and intuitive user interface.
-* **Backend**: Developed for scalability to support independent project growth.
-* **AI/ML**: Implemented traffic threat detection using Python-based machine learning models, including the `RandomForestClassifier`.
+* **Frontend**: React.js – Chosen for its component-based architecture, which enables a highly modular, responsive, and intuitive citizen-facing interface.
+* **Backend**: Python (Flask/FastAPI) – A lightweight, Python-based RESTful architecture selected for its stability and seamless integration with your machine learning libraries.
+* **Machine Learning**: Scikit-learn (RandomForestClassifier) – Utilized for its high accuracy in classification tasks and its ability to effectively process and analyze traffic telemetry data.
+* **AI/LLM Integration**: Generative AI API – Integrated for intelligent automation, including language translation, ticket generation, and content verification.
+* **Version Control**: GitHub – Utilized for source code management, collaborative development, and deployment tracking.
 
 ## Project Status
 Civic Shield is an evolving platform currently focused on integrating advanced backend functionality and refining its security inspection capabilities.
