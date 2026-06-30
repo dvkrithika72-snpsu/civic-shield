@@ -60,8 +60,15 @@ export const AppProvider = ({ children }) => {
   const [locationServices, setLocationServices] = useState(true);
   const [dataSaverMode, setDataSaverMode] = useState(false);
   const [offlineSync, setOfflineSync] = useState(true);
+  const [profilePhotos, setProfilePhotos] = useState({});
   
-  const [profilePhoto, setProfilePhoto] = useState(null);
+  const setProfilePhoto = (url) => {
+    if (currentUser) {
+      setProfilePhotos(prev => ({ ...prev, [currentUser.name]: url }));
+    }
+  };
+  
+  const profilePhoto = currentUser ? profilePhotos[currentUser.name] : null;
 
   useEffect(() => {
     if (theme === 'dark') {

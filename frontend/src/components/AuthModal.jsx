@@ -96,17 +96,17 @@ export const AuthModal = () => {
       onClick={() => setActiveTab('home')}
     >
       <div 
-        className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl overflow-hidden flex flex-col md:flex-row relative border border-slate-100 dark:border-slate-800"
+        className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row relative border border-slate-100 dark:border-slate-800"
         onClick={(e) => e.stopPropagation()}
       >
         <button 
           onClick={() => setActiveTab('home')}
-          className="absolute top-4 right-4 text-slate-400 dark:text-slate-500 hover:text-[#0F172A] dark:hover:text-white transition-colors z-20 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm rounded-full p-1"
+          className="absolute top-4 right-4 text-slate-400 dark:text-slate-500 hover:text-[#0F172A] dark:hover:text-white transition-colors z-20 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-full p-1"
         >
           <X className="w-5 h-5" />
         </button>
 
-        <div className="p-8 space-y-6">
+        <div className="p-8 space-y-6 overflow-y-auto w-full custom-scrollbar">
           <div className="text-center space-y-2">
             <div className="mx-auto w-12 h-12 bg-emerald-50 border border-emerald-200 rounded-full flex items-center justify-center mb-4">
               <ShieldAlert className="w-6 h-6 text-[#059669]" />
