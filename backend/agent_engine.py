@@ -22,7 +22,7 @@ async def generate_civic_analysis(location_name: str, coordinates: str, image_ke
     config = LocalAgentConfig(
         model="gemini-1.5-flash",
         system_instructions=system_prompt,
-        api_key=os.environ.get("GEMINI_API_KEY", "AQ.Ab8RN6KNws4APgCoGaVdLwdug2h3Upn3I1lVO8xN24PI4SIeAQ")
+        api_key=os.environ.get("GEMINI_API_KEY")
     )
     
     async with Agent(config) as agent:
