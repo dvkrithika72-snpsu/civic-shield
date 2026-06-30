@@ -44,6 +44,25 @@ async def handle_chat(payload: ChatPayload):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+import os
+from fastapi.responses import FileResponse
+
+frontend_dist = os.path.join(os.path.dirname(__file__), "dist")
+
+@app.get("/{full_path:path}")
+async def serve_spa(full_path: str):
+    if full_path.startswith("api/"):
+        raise HTTPException(status_code=404, detail="API route not found")
+    
+    file_path = os.path.join(frontend_dist, full_path)
+    if os.path.isfile(file_path) and full_path != "":
+        return FileResponse(file_path)
+        
+    index_path = os.path.join(frontend_dist, "index.html")
+    if os.path.exists(index_path):
+        return FileResponse(index_path)
+    return {"message": "API is running. Frontend build not found."}
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)

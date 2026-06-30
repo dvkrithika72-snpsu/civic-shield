@@ -1,26 +1,32 @@
-# Use the official Node.js image
-FROM node:18-alpine
-
-# Set the working directory to the frontend folder
-WORKDIR /app
-
-# Copy package files from the frontend folder
-COPY frontend/package*.json ./
+# Stage 1: Build the React frontend
+FROM node:18-alpine AS frontend-builder
+WORKDIR /app/frontend
 
 # Install dependencies
+COPY frontend/package*.json ./
 RUN npm install
 
-# Copy all project files from the frontend folder to the container
+# Build the frontend
 COPY frontend/ .
-
-# Build the project
 RUN npm run build
 
-# Install a simple web server
-RUN npm install -g serve
+# Stage 2: Setup Python backend
+FROM python:3.11-slim
+WORKDIR /app
 
-# Expose the default port (Cloud Run will override this with the PORT environment variable)
+# Install Python dependencies
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the backend source code
+COPY backend/ .
+
+# Copy the built frontend static files from the builder stage
+# We place them in the 'dist' directory where app.py expects them
+COPY --from=frontend-builder /app/frontend/dist /app/dist
+
+# Expose the port (Cloud Run uses the PORT environment variable, defaults to 8080)
 EXPOSE 8080
 
-# Start the server, binding to the PORT environment variable (default 8080)
-CMD ["sh", "-c", "serve -s dist -l ${PORT:-8080}"]
+# Start the FastAPI server on the designated PORT
+CMD uvicorn app:app --host 0.0.0.0 --port ${PORT:-8080}

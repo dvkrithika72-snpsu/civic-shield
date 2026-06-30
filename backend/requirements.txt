@@ -1,5 +1,5 @@
 fastapi
 uvicorn
 pydantic
-google-antigravity
-protobuf>=5.27.0
+google-genai
+python-dotenv
