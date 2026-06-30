@@ -19,7 +19,7 @@ Civic Shield is an evolving platform currently focused on integrating advanced b
 
 ## Live Deployment & Documentation
 * **Deployed Application**: [Insert your Google Cloud Link here]
-* **Project Documentation**: [Insert your Google Doc Link here]
+* **Project Documentation**: https://docs.google.com/document/d/1fvgTHMZ4PBesTnlSXWV-S6S6WOnLGoabRW4HVW6viXA/edit?usp=sharing
 
 ## Installation
 To run the project locally:
